@@ -45,6 +45,15 @@ class LinkedList:
                 cur.next = cur.next.next
                 return
             cur = cur.next
+
+    def reverse(self):
+        prev, cur = None, self.head
+        while cur:
+            next_cur = cur.next
+            cur.next = prev
+            prev = cur
+            cur = next_cur
+        self.head = prev
             
     def print_list(self):
         cur = self.head
@@ -59,7 +68,9 @@ l1.insert_last(1)
 l1.insert_first("First")
 l1.insert_first("Second")
 l1.print_list()
-l1.delete_first()
+l1.reverse()
 l1.print_list()
-l1.delete("First")
-l1.print_list()
+#l1.delete_first()
+#l1.print_list()
+#l1.delete("First")
+#l1.print_list()
